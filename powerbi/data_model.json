@@ -1,0 +1,539 @@
+{
+  "dataModel": {
+    "modelName": "Marketing Campaign Performance Model",
+    "author": "Sahil Hansa",
+    "email": "sahilhansa007@gmail.com",
+    "createdDate": "2024-08-21",
+    "description": "Comprehensive data model for marketing campaign performance analysis and ROI tracking",
+    "location": "Jammu, J&K, India",
+    
+    "tables": [
+      {
+        "tableName": "CampaignData",
+        "tableType": "Fact",
+        "description": "Main fact table containing campaign performance metrics",
+        "rowCount": "~500-1000",
+        "columns": [
+          {
+            "columnName": "campaign_id",
+            "dataType": "Text",
+            "description": "Unique identifier for each campaign",
+            "isPrimaryKey": true,
+            "isVisible": true
+          },
+          {
+            "columnName": "campaign_name",
+            "dataType": "Text",
+            "description": "Descriptive name of the marketing campaign",
+            "isVisible": true
+          },
+          {
+            "columnName": "campaign_type",
+            "dataType": "Text",
+            "description": "Category of campaign (Product Launch, Seasonal, etc.)",
+            "isVisible": true
+          },
+          {
+            "columnName": "channel",
+            "dataType": "Text",
+            "description": "Marketing channel used (Social Media, Google Ads, etc.)",
+            "isVisible": true
+          },
+          {
+            "columnName": "start_date",
+            "dataType": "DateTime",
+            "description": "Campaign start date",
+            "isVisible": true,
+            "format": "yyyy-mm-dd"
+          },
+          {
+            "columnName": "end_date",
+            "dataType": "DateTime",
+            "description": "Campaign end date",
+            "isVisible": true,
+            "format": "yyyy-mm-dd"
+          },
+          {
+            "columnName": "budget_allocated",
+            "dataType": "Currency",
+            "description": "Total budget allocated for the campaign",
+            "isVisible": true,
+            "format": "$#,##0"
+          },
+          {
+            "columnName": "total_spend",
+            "dataType": "Currency",
+            "description": "Actual amount spent on the campaign",
+            "isVisible": true,
+            "format": "$#,##0"
+          },
+          {
+            "columnName": "impressions",
+            "dataType": "Whole Number",
+            "description": "Total ad impressions generated",
+            "isVisible": true,
+            "format": "#,##0"
+          },
+          {
+            "columnName": "clicks",
+            "dataType": "Whole Number",
+            "description": "Total clicks received",
+            "isVisible": true,
+            "format": "#,##0"
+          },
+          {
+            "columnName": "leads_generated",
+            "dataType": "Whole Number",
+            "description": "Number of leads generated from campaign",
+            "isVisible": true,
+            "format": "#,##0"
+          },
+          {
+            "columnName": "conversions",
+            "dataType": "Whole Number",
+            "description": "Number of conversions achieved",
+            "isVisible": true,
+            "format": "#,##0"
+          },
+          {
+            "columnName": "revenue_generated",
+            "dataType": "Currency",
+            "description": "Total revenue attributed to campaign",
+            "isVisible": true,
+            "format": "$#,##0"
+          },
+          {
+            "columnName": "status",
+            "dataType": "Text",
+            "description": "Current campaign status (Active, Completed, Paused)",
+            "isVisible": true
+          }
+        ]
+      },
+      {
+        "tableName": "BudgetAllocation",
+        "tableType": "Fact",
+        "description": "Budget breakdown by category and time period",
+        "rowCount": "~200-500",
+        "columns": [
+          {
+            "columnName": "budget_id",
+            "dataType": "Text",
+            "description": "Unique budget allocation identifier",
+            "isPrimaryKey": true,
+            "isVisible": false
+          },
+          {
+            "columnName": "campaign_id",
+            "dataType": "Text",
+            "description": "Reference to campaign",
+            "isForeignKey": true,
+            "referencedTable": "CampaignData",
+            "isVisible": true
+          },
+          {
+            "columnName": "channel",
+            "dataType": "Text",
+            "description": "Marketing channel for budget allocation",
+            "isVisible": true
+          },
+          {
+            "columnName": "budget_category",
+            "dataType": "Text",
+            "description": "Type of budget (Media Spend, Creative, Management)",
+            "isVisible": true
+          },
+          {
+            "columnName": "allocated_amount",
+            "dataType": "Currency",
+            "description": "Amount allocated to this category",
+            "isVisible": true,
+            "format": "$#,##0"
+          },
+          {
+            "columnName": "spent_amount",
+            "dataType": "Currency",
+            "description": "Amount actually spent",
+            "isVisible": true,
+            "format": "$#,##0"
+          },
+          {
+            "columnName": "remaining_amount",
+            "dataType": "Currency",
+            "description": "Budget remaining",
+            "isVisible": true,
+            "format": "$#,##0"
+          },
+          {
+            "columnName": "quarter",
+            "dataType": "Text",
+            "description": "Quarter of budget allocation (Q1, Q2, Q3, Q4)",
+            "isVisible": true
+          },
+          {
+            "columnName": "month",
+            "dataType": "Text",
+            "description": "Month name of allocation",
+            "isVisible": true
+          },
+          {
+            "columnName": "year",
+            "dataType": "Whole Number",
+            "description": "Year of budget allocation",
+            "isVisible": true
+          },
+          {
+            "columnName": "cost_center",
+            "dataType": "Text",
+            "description": "Organizational cost center",
+            "isVisible": true
+          }
+        ]
+      },
+      {
+        "tableName": "ROIMetrics",
+        "tableType": "Fact",
+        "description": "Calculated ROI and performance metrics",
+        "rowCount": "~500-1000",
+        "columns": [
+          {
+            "columnName": "roi_id",
+            "dataType": "Text",
+            "description": "Unique ROI calculation identifier",
+            "isPrimaryKey": true,
+            "isVisible": false
+          },
+          {
+            "columnName": "campaign_id",
+            "dataType": "Text",
+            "description": "Reference to campaign",
+            "isForeignKey": true,
+            "referencedTable": "CampaignData",
+            "isVisible": true
+          },
+          {
+            "columnName": "roi_percentage",
+            "dataType": "Percentage",
+            "description": "Return on investment percentage",
+            "isVisible": true,
+            "format": "0.00%"
+          },
+          {
+            "columnName": "cost_per_lead",
+            "dataType": "Currency",
+            "description": "Cost to acquire each lead",
+            "isVisible": true,
+            "format": "$#,##0.00"
+          },
+          {
+            "columnName": "cost_per_acquisition",
+            "dataType": "Currency",
+            "description": "Cost per customer acquisition",
+            "isVisible": true,
+            "format": "$#,##0.00"
+          },
+          {
+            "columnName": "conversion_rate",
+            "dataType": "Percentage",
+            "description": "Lead to customer conversion rate",
+            "isVisible": true,
+            "format": "0.00%"
+          },
+          {
+            "columnName": "click_through_rate",
+            "dataType": "Percentage",
+            "description": "Click-through rate for ads",
+            "isVisible": true,
+            "format": "0.0000%"
+          },
+          {
+            "columnName": "customer_lifetime_value",
+            "dataType": "Currency",
+            "description": "Estimated customer lifetime value",
+            "isVisible": true,
+            "format": "$#,##0"
+          },
+          {
+            "columnName": "profitability_score",
+            "dataType": "Decimal Number",
+            "description": "Overall profitability score (0-10)",
+            "isVisible": true,
+            "format": "0.0"
+          }
+        ]
+      },
+      {
+        "tableName": "DateDimension",
+        "tableType": "Dimension",
+        "description": "Date dimension table for time-based analysis",
+        "rowCount": "~1095 (3 years)",
+        "columns": [
+          {
+            "columnName": "Date",
+            "dataType": "DateTime",
+            "description": "Date value",
+            "isPrimaryKey": true,
+            "isVisible": true,
+            "format": "yyyy-mm-dd"
+          },
+          {
+            "columnName": "Year",
+            "dataType": "Whole Number",
+            "description": "Year component",
+            "isVisible": true
+          },
+          {
+            "columnName": "Quarter",
+            "dataType": "Text",
+            "description": "Quarter (Q1, Q2, Q3, Q4)",
+            "isVisible": true
+          },
+          {
+            "columnName": "Month",
+            "dataType": "Whole Number",
+            "description": "Month number (1-12)",
+            "isVisible": true
+          },
+          {
+            "columnName": "MonthName",
+            "dataType": "Text",
+            "description": "Month name (January, February, etc.)",
+            "isVisible": true
+          },
+          {
+            "columnName": "DayOfWeek",
+            "dataType": "Whole Number",
+            "description": "Day of week (1=Sunday, 7=Saturday)",
+            "isVisible": true
+          },
+          {
+            "columnName": "DayName",
+            "dataType": "Text",
+            "description": "Day name (Monday, Tuesday, etc.)",
+            "isVisible": true
+          },
+          {
+            "columnName": "IsWeekend",
+            "dataType": "True/False",
+            "description": "Whether date falls on weekend",
+            "isVisible": true
+          },
+          {
+            "columnName": "WeekOfYear",
+            "dataType": "Whole Number",
+            "description": "Week number in year (1-53)",
+            "isVisible": true
+          }
+        ]
+      },
+      {
+        "tableName": "ChannelDimension",
+        "tableType": "Dimension", 
+        "description": "Marketing channel master data",
+        "rowCount": "~15-20",
+        "columns": [
+          {
+            "columnName": "ChannelID",
+            "dataType": "Text",
+            "description": "Unique channel identifier",
+            "isPrimaryKey": true,
+            "isVisible": false
+          },
+          {
+            "columnName": "ChannelName",
+            "dataType": "Text",
+            "description": "Marketing channel name",
+            "isVisible": true
+          },
+          {
+            "columnName": "ChannelCategory",
+            "dataType": "Text",
+            "description": "Channel category (Digital, Traditional, Social)",
+            "isVisible": true
+          },
+          {
+            "columnName": "ChannelType",
+            "dataType": "Text",
+            "description": "Paid, Organic, or Earned media",
+            "isVisible": true
+          },
+          {
+            "columnName": "DefaultCPM",
+            "dataType": "Currency",
+            "description": "Default cost per thousand impressions",
+            "isVisible": true,
+            "format": "$#,##0.00"
+          },
+          {
+            "columnName": "BenchmarkCTR",
+            "dataType": "Percentage",
+            "description": "Industry benchmark click-through rate",
+            "isVisible": true,
+            "format": "0.00%"
+          }
+        ]
+      }
+    ],
+    
+    "relationships": [
+      {
+        "fromTable": "CampaignData",
+        "fromColumn": "campaign_id",
+        "toTable": "BudgetAllocation",
+        "toColumn": "campaign_id",
+        "relationshipType": "One-to-Many",
+        "crossFilterDirection": "Single",
+        "description": "Each campaign can have multiple budget allocations"
+      },
+      {
+        "fromTable": "CampaignData",
+        "fromColumn": "campaign_id",
+        "toTable": "ROIMetrics", 
+        "toColumn": "campaign_id",
+        "relationshipType": "One-to-One",
+        "crossFilterDirection": "Single",
+        "description": "Each campaign has corresponding ROI metrics"
+      },
+      {
+        "fromTable": "DateDimension",
+        "fromColumn": "Date",
+        "toTable": "CampaignData",
+        "toColumn": "start_date",
+        "relationshipType": "One-to-Many",
+        "crossFilterDirection": "Single",
+        "description": "Date dimension for campaign start dates"
+      },
+      {
+        "fromTable": "ChannelDimension",
+        "fromColumn": "ChannelName", 
+        "toTable": "CampaignData",
+        "toColumn": "channel",
+        "relationshipType": "One-to-Many",
+        "crossFilterDirection": "Single",
+        "description": "Channel master data relationship"
+      }
+    ],
+    
+    "calculatedColumns": [
+      {
+        "tableName": "CampaignData",
+        "columnName": "Campaign_Duration_Days",
+        "expression": "DATEDIFF(CampaignData[start_date], CampaignData[end_date], DAY) + 1",
+        "description": "Number of days campaign ran"
+      },
+      {
+        "tableName": "CampaignData", 
+        "columnName": "Budget_Utilization",
+        "expression": "DIVIDE(CampaignData[total_spend], CampaignData[budget_allocated], 0)",
+        "description": "Percentage of budget utilized"
+      },
+      {
+        "tableName": "CampaignData",
+        "columnName": "Days_Since_End",
+        "expression": "DATEDIFF(CampaignData[end_date], TODAY(), DAY)",
+        "description": "Days since campaign ended"
+      }
+    ],
+    
+    "measures": [
+      {
+        "measureName": "Campaign_ROI",
+        "expression": "DIVIDE([Total Revenue] - [Total Campaign Cost], [Total Campaign Cost], 0) * 100",
+        "formatString": "0.00%",
+        "description": "Return on investment percentage"
+      },
+      {
+        "measureName": "Total Campaign Cost",
+        "expression": "SUM(CampaignData[total_spend])",
+        "formatString": "$#,##0",
+        "description": "Total amount spent on campaigns"
+      },
+      {
+        "measureName": "Total Revenue",
+        "expression": "SUM(CampaignData[revenue_generated])",
+        "formatString": "$#,##0", 
+        "description": "Total revenue generated from campaigns"
+      },
+      {
+        "measureName": "Cost_Per_Lead",
+        "expression": "DIVIDE([Total Campaign Cost], [Total Leads Generated], 0)",
+        "formatString": "$#,##0.00",
+        "description": "Average cost to generate one lead"
+      },
+      {
+        "measureName": "Conversion_Rate",
+        "expression": "DIVIDE([Total Conversions], [Total Leads Generated], 0) * 100",
+        "formatString": "0.00%",
+        "description": "Percentage of leads that convert to customers"
+      }
+    ],
+    
+    "hierarchies": [
+      {
+        "hierarchyName": "Time_Hierarchy",
+        "tableName": "DateDimension",
+        "levels": [
+          {
+            "levelName": "Year",
+            "columnName": "Year"
+          },
+          {
+            "levelName": "Quarter", 
+            "columnName": "Quarter"
+          },
+          {
+            "levelName": "Month",
+            "columnName": "MonthName"
+          },
+          {
+            "levelName": "Date",
+            "columnName": "Date"
+          }
+        ]
+      },
+      {
+        "hierarchyName": "Channel_Hierarchy",
+        "tableName": "ChannelDimension",
+        "levels": [
+          {
+            "levelName": "Channel Category",
+            "columnName": "ChannelCategory"
+          },
+          {
+            "levelName": "Channel Type",
+            "columnName": "ChannelType" 
+          },
+          {
+            "levelName": "Channel Name",
+            "columnName": "ChannelName"
+          }
+        ]
+      }
+    ],
+    
+    "dataRefresh": {
+      "refreshFrequency": "Hourly during campaigns, Daily otherwise",
+      "lastRefresh": "2024-08-21T14:30:00Z",
+      "refreshMethod": "Automated via Python script",
+      "dataSource": "SQL Server Marketing Database"
+    },
+    
+    "performance": {
+      "totalModelSize": "~50-100 MB",
+      "queryPerformance": "Average query time < 2 seconds",
+      "compressionRatio": "~70% compression achieved",
+      "recommendedMemory": "4GB RAM minimum for optimal performance"
+    },
+    
+    "securitySettings": {
+      "rowLevelSecurity": false,
+      "columnLevelSecurity": false,
+      "dataClassification": "Internal Use",
+      "accessControl": "Marketing team and management"
+    },
+    
+    "version": "1.0",
+    "lastModified": "2024-08-21",
+    "notes": "Initial version created for marketing campaign performance analysis. Model optimized for real-time dashboard usage with automated refresh capabilities."
+  }
+}

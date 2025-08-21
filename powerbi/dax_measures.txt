@@ -1,1 +1,397 @@
+-- DAX Measures for Marketing Campaign Dashboard
+-- Author: Sahil Hansa
+-- Email: sahilhansa007@gmail.com
+-- Description: Power BI DAX measures for marketing campaign performance analysis
+-- Location: Jammu, J&K, India
 
+-- =============================================
+-- Primary KPI Measures
+-- =============================================
+
+-- Campaign ROI Percentage
+Campaign_ROI = 
+DIVIDE(
+    [Total Revenue] - [Total Campaign Cost],
+    [Total Campaign Cost],
+    0
+) * 100
+
+-- Total Campaign Cost
+Total Campaign Cost = SUM(CampaignData[total_spend])
+
+-- Total Revenue Generated
+Total Revenue = SUM(CampaignData[revenue_generated])
+
+-- Net Profit
+Net Profit = [Total Revenue] - [Total Campaign Cost]
+
+-- Cost Per Lead
+Cost_Per_Lead = 
+DIVIDE(
+    [Total Campaign Cost],
+    [Total Leads Generated],
+    0
+)
+
+-- Cost Per Acquisition (CPA)
+Cost_Per_Acquisition = 
+DIVIDE(
+    [Total Campaign Cost],
+    [Total Conversions],
+    0
+)
+
+-- Conversion Rate
+Conversion_Rate = 
+DIVIDE(
+    [Total Conversions],
+    [Total Leads Generated],
+    0
+) * 100
+
+-- Click Through Rate (CTR)
+Click_Through_Rate = 
+DIVIDE(
+    [Total Clicks],
+    [Total Impressions],
+    0
+) * 100
+
+-- =============================================
+-- Aggregate Measures
+-- =============================================
+
+-- Total Leads Generated
+Total Leads Generated = SUM(CampaignData[leads_generated])
+
+-- Total Conversions
+Total Conversions = SUM(CampaignData[conversions])
+
+-- Total Impressions
+Total Impressions = SUM(CampaignData[impressions])
+
+-- Total Clicks
+Total Clicks = SUM(CampaignData[clicks])
+
+-- Total Budget Allocated
+Total Budget Allocated = SUM(CampaignData[budget_allocated])
+
+-- Budget Utilization Rate
+Budget_Utilization_Rate = 
+DIVIDE(
+    [Total Campaign Cost],
+    [Total Budget Allocated],
+    0
+) * 100
+
+-- Remaining Budget
+Remaining_Budget = [Total Budget Allocated] - [Total Campaign Cost]
+
+-- =============================================
+-- Time Intelligence Measures
+-- =============================================
+
+-- Previous Month ROI
+Previous_Month_ROI = 
+CALCULATE(
+    [Campaign_ROI],
+    PREVIOUSMONTH(CampaignData[start_date])
+)
+
+-- ROI Growth Rate
+ROI_Growth_Rate = 
+DIVIDE(
+    [Campaign_ROI] - [Previous_Month_ROI],
+    [Previous_Month_ROI],
+    0
+) * 100
+
+-- Year to Date Revenue
+YTD_Revenue = 
+TOTALYTD(
+    [Total Revenue],
+    CampaignData[start_date]
+)
+
+-- Previous Year Revenue
+Previous_Year_Revenue = 
+CALCULATE(
+    [Total Revenue],
+    SAMEPERIODLASTYEAR(CampaignData[start_date])
+)
+
+-- Revenue Growth YoY
+Revenue_Growth_YoY = 
+DIVIDE(
+    [Total Revenue] - [Previous_Year_Revenue],
+    [Previous_Year_Revenue],
+    0
+) * 100
+
+-- =============================================
+-- Channel Performance Measures
+-- =============================================
+
+-- Best Performing Channel
+Best_Performing_Channel = 
+TOPN(
+    1,
+    VALUES(CampaignData[channel]),
+    [Campaign_ROI]
+)
+
+-- Channel ROI Ranking
+Channel_ROI_Rank = 
+RANKX(
+    ALL(CampaignData[channel]),
+    [Campaign_ROI],,
+    DESC,
+    DENSE
+)
+
+-- Channel Contribution %
+Channel_Revenue_Contribution = 
+DIVIDE(
+    [Total Revenue],
+    CALCULATE(
+        [Total Revenue],
+        ALL(CampaignData[channel])
+    ),
+    0
+) * 100
+
+-- =============================================
+-- Advanced Analytics Measures
+-- =============================================
+
+-- Campaign Effectiveness Score
+Campaign_Effectiveness_Score = 
+([Campaign_ROI] * 0.4) + 
+([Conversion_Rate] * 0.3) + 
+([Click_Through_Rate] * 0.2) + 
+([Budget_Utilization_Rate] * 0.1)
+
+-- Lead Quality Score
+Lead_Quality_Score = 
+DIVIDE(
+    [Total Conversions],
+    [Total Leads Generated],
+    0
+) * 100
+
+-- Customer Acquisition Efficiency
+Customer_Acquisition_Efficiency = 
+DIVIDE(
+    [Total Revenue],
+    [Cost_Per_Acquisition],
+    0
+)
+
+-- ROAS (Return on Ad Spend)
+ROAS = 
+DIVIDE(
+    [Total Revenue],
+    [Total Campaign Cost],
+    0
+)
+
+-- =============================================
+-- Conditional Formatting Measures
+-- =============================================
+
+-- ROI Status Color
+ROI_Status_Color = 
+SWITCH(
+    TRUE(),
+    [Campaign_ROI] >= 300, "#00B050",  -- Green for excellent ROI
+    [Campaign_ROI] >= 200, "#FFC000",  -- Yellow for good ROI  
+    [Campaign_ROI] >= 100, "#FF7F00",  -- Orange for moderate ROI
+    "#FF0000"                          -- Red for poor ROI
+)
+
+-- Performance Indicator
+Performance_Indicator = 
+SWITCH(
+    TRUE(),
+    [Campaign_ROI] >= 300, "Excellent",
+    [Campaign_ROI] >= 200, "Good",
+    [Campaign_ROI] >= 100, "Average",
+    "Poor"
+)
+
+-- Budget Alert
+Budget_Alert = 
+IF(
+    [Budget_Utilization_Rate] > 95,
+    "⚠️ Budget Alert",
+    IF(
+        [Budget_Utilization_Rate] > 80,
+        "⚡ Monitor Budget",
+        "✅ Budget OK"
+    )
+)
+
+-- =============================================
+-- Campaign Status Measures
+-- =============================================
+
+-- Active Campaigns Count
+Active_Campaigns = 
+CALCULATE(
+    COUNTROWS(CampaignData),
+    CampaignData[status] = "Active"
+)
+
+-- Completed Campaigns Count
+Completed_Campaigns = 
+CALCULATE(
+    COUNTROWS(CampaignData),
+    CampaignData[status] = "Completed"
+)
+
+-- Campaign Success Rate
+Campaign_Success_Rate = 
+DIVIDE(
+    CALCULATE(
+        COUNTROWS(CampaignData),
+        [Campaign_ROI] > 200
+    ),
+    COUNTROWS(CampaignData),
+    0
+) * 100
+
+-- =============================================
+-- Forecasting Measures
+-- =============================================
+
+-- Projected Revenue (Next 30 Days)
+Projected_Revenue_30Days = 
+VAR ActiveCampaignAvgDaily = 
+DIVIDE(
+    CALCULATE(
+        [Total Revenue],
+        CampaignData[status] = "Active"
+    ),
+    CALCULATE(
+        SUMX(
+            FILTER(CampaignData, CampaignData[status] = "Active"),
+            DATEDIFF(CampaignData[start_date], TODAY(), DAY)
+        )
+    ),
+    0
+)
+RETURN
+ActiveCampaignAvgDaily * 30
+
+-- Estimated Campaign Completion
+Days_To_Campaign_End = 
+IF(
+    SELECTEDVALUE(CampaignData[status]) = "Active",
+    DATEDIFF(
+        TODAY(),
+        SELECTEDVALUE(CampaignData[end_date]),
+        DAY
+    ),
+    0
+)
+
+-- =============================================
+-- Filter Context Measures
+-- =============================================
+
+-- Selected Campaign Name
+Selected_Campaign = 
+IF(
+    HASONEVALUE(CampaignData[campaign_name]),
+    VALUES(CampaignData[campaign_name]),
+    "Multiple Campaigns Selected"
+)
+
+-- Selected Time Period
+Selected_Period = 
+"From " & 
+FORMAT(MIN(CampaignData[start_date]), "MMM YYYY") & 
+" to " & 
+FORMAT(MAX(CampaignData[end_date]), "MMM YYYY")
+
+-- Total Campaigns in Context
+Total_Campaigns_Selected = COUNTROWS(CampaignData)
+
+-- =============================================
+-- Benchmark Measures
+-- =============================================
+
+-- Industry Benchmark ROI
+Industry_Benchmark_ROI = 250  -- Static benchmark value
+
+-- ROI vs Benchmark
+ROI_vs_Benchmark = 
+[Campaign_ROI] - [Industry_Benchmark_ROI]
+
+-- Benchmark Performance Indicator
+Benchmark_Status = 
+IF(
+    [Campaign_ROI] > [Industry_Benchmark_ROI],
+    "Above Benchmark ✅",
+    "Below Benchmark ⚠️"
+)
+
+-- =============================================
+-- Custom Tooltips
+-- =============================================
+
+-- Campaign Details Tooltip
+Campaign_Tooltip = 
+"Campaign: " & SELECTEDVALUE(CampaignData[campaign_name]) & 
+UNICHAR(10) & "Channel: " & SELECTEDVALUE(CampaignData[channel]) &
+UNICHAR(10) & "ROI: " & FORMAT([Campaign_ROI], "0.0%") &
+UNICHAR(10) & "Revenue: " & FORMAT([Total Revenue], "$#,0") &
+UNICHAR(10) & "Cost: " & FORMAT([Total Campaign Cost], "$#,0")
+
+-- Performance Summary
+Performance_Summary = 
+"Performance Score: " & FORMAT([Campaign_Effectiveness_Score], "0.0") &
+UNICHAR(10) & "Lead Quality: " & FORMAT([Lead_Quality_Score], "0.0%") &
+UNICHAR(10) & "Conversion Rate: " & FORMAT([Conversion_Rate], "0.0%") &
+UNICHAR(10) & "CTR: " & FORMAT([Click_Through_Rate], "0.00%")
+
+-- =============================================
+-- Variance Analysis
+-- =============================================
+
+-- Budget Variance
+Budget_Variance = [Total Budget Allocated] - [Total Campaign Cost]
+
+-- Budget Variance %
+Budget_Variance_Percentage = 
+DIVIDE(
+    [Budget_Variance],
+    [Total Budget Allocated],
+    0
+) * 100
+
+-- Performance vs Target
+Performance_vs_Target = 
+VAR TargetROI = 250
+RETURN
+[Campaign_ROI] - TargetROI
+
+-- =============================================
+-- Mobile Responsive Measures
+-- =============================================
+
+-- Condensed KPI Display
+Mobile_KPI_Display = 
+"ROI: " & FORMAT([Campaign_ROI], "0%") & 
+" | CPA: " & FORMAT([Cost_Per_Acquisition], "$0") &
+" | Conv: " & FORMAT([Conversion_Rate], "0.0%")
+
+-- Short Performance Indicator
+Short_Performance = 
+SWITCH(
+    TRUE(),
+    [Campaign_ROI] >= 300, "⭐⭐⭐",
+    [Campaign_ROI] >= 200, "⭐⭐",
+    [Campaign_ROI] >= 100, "⭐",
+    "❌"
+)
