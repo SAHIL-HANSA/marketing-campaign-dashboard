@@ -1,0 +1,48 @@
+budget_id,campaign_id,channel,budget_category,allocated_amount,spent_amount,remaining_amount,quarter,month,year,cost_center
+B001,C001,Social Media,Media Spend,12000,11400,600,Q2,June,2024,Marketing
+B002,C001,Social Media,Creative Production,2000,1800,200,Q2,June,2024,Creative
+B003,C001,Social Media,Management Fee,1000,1050,-50,Q2,June,2024,Agency
+B004,C002,Email Marketing,Platform Costs,500,480,20,Q3,August,2024,Technology
+B005,C002,Email Marketing,Content Creation,3000,2900,100,Q3,August,2024,Creative
+B006,C002,Email Marketing,List Management,4500,4420,80,Q3,August,2024,Data
+B007,C003,Google Ads,Ad Spend,20000,19200,800,Q4,November,2024,Marketing
+B008,C003,Google Ads,Landing Page,3000,2800,200,Q4,November,2024,Technology
+B009,C003,Google Ads,Campaign Management,2000,1500,500,Q4,November,2024,Agency
+B010,C004,Display Advertising,Media Buy,9000,8500,500,Q1,March,2024,Marketing
+B011,C004,Display Advertising,Creative Assets,2000,1900,100,Q1,March,2024,Creative
+B012,C004,Display Advertising,Tracking Setup,1000,1000,0,Q1,March,2024,Technology
+B013,C005,LinkedIn Ads,Sponsored Content,7000,6800,200,Q3,July,2024,Marketing
+B014,C005,LinkedIn Ads,Lead Magnets,2000,1850,150,Q3,July,2024,Creative
+B015,C005,LinkedIn Ads,Account Management,1000,1000,0,Q3,July,2024,Agency
+B016,C006,Facebook Ads,Advertising Spend,4500,4200,300,Q3,September,2024,Marketing
+B017,C006,Facebook Ads,Pixel Setup,500,500,0,Q3,September,2024,Technology
+B018,C006,Facebook Ads,Creative Testing,1000,1150,-150,Q3,September,2024,Creative
+B019,C007,Organic Social,Content Creation,3000,2800,200,Q2,May,2024,Creative
+B020,C007,Organic Social,Social Media Tools,1000,1000,0,Q2,May,2024,Technology
+B021,C008,Instagram,Influencer Fees,15000,14200,800,Q4,October,2024,Influencer
+B022,C008,Instagram,Content Production,2000,1900,100,Q4,October,2024,Creative
+B023,C008,Instagram,Campaign Management,1000,1000,0,Q4,October,2024,Agency
+B024,C009,YouTube,Video Production,12000,11500,500,Q2,April,2024,Creative
+B025,C009,YouTube,Ad Placement,6000,5800,200,Q2,April,2024,Marketing
+B026,C009,YouTube,Analytics Tools,2000,1900,100,Q2,April,2024,Technology
+B027,C010,Direct Email,Email Platform,2000,1800,200,Q1,January,2024,Technology
+B028,C010,Direct Email,Newsletter Design,1500,1400,100,Q1,January,2024,Creative
+B029,C010,Direct Email,List Segmentation,1500,1400,100,Q1,January,2024,Data
+B030,C011,Organic Search,SEO Tools,3000,2800,200,Q1,February,2024,Technology
+B031,C011,SEO,Content Writing,4000,3600,400,Q1,February,2024,Creative
+B032,C011,SEO,Link Building,1000,800,200,Q1,February,2024,Marketing
+B033,C012,Podcast Ads,Sponsorship Fees,10000,9500,500,Q3,August,2024,Media
+B034,C012,Podcast Ads,Script Writing,1000,900,100,Q3,August,2024,Creative
+B035,C012,Podcast Ads,Production,1000,900,100,Q3,August,2024,Creative
+B036,C013,Trade Shows,Booth Rental,15000,14500,500,Q2,June,2024,Events
+B037,C013,Trade Shows,Materials Printing,4000,3800,200,Q2,June,2024,Creative
+B038,C013,Trade Shows,Staff Travel,3000,3150,-150,Q2,June,2024,Operations
+B039,C014,Mobile Ads,App Install Campaigns,12000,11200,800,Q3,September,2024,Marketing
+B040,C014,Mobile Ads,Creative Assets,3000,2800,200,Q3,September,2024,Creative
+B041,C014,Mobile Ads,Attribution Tools,1000,1200,-200,Q3,September,2024,Technology
+B042,C015,Word of Mouth,Referral Rewards,2000,1800,200,Q3,July,2024,Incentives
+B043,C015,Word of Mouth,Program Setup,500,450,50,Q3,July,2024,Technology
+B044,C015,Word of Mouth,Marketing Materials,500,450,50,Q3,July,2024,Creative
+B045,C016,Multi-Channel,Black Friday Media,28000,26500,1500,Q4,November,2024,Marketing
+B046,C016,Multi-Channel,Creative Production,5000,4800,200,Q4,November,2024,Creative
+B047,C016,Multi-Channel,Campaign Coordination,2000,1950,50,Q4,November,2024,Agency
