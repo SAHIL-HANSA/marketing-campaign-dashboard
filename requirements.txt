@@ -1,0 +1,86 @@
+# Marketing Campaign Dashboard Requirements
+# Author: Sahil Hansa
+# Email: sahilhansa007@gmail.com
+
+# Core Power BI and Data Analysis
+# Note: Power BI Desktop is installed separately from Microsoft
+# These are supporting Python libraries for automation and data processing
+
+# Data Processing and Analysis
+pandas==2.0.3
+numpy==1.24.3
+openpyxl==3.1.2
+xlrd==2.0.1
+
+# Database Connectivity
+sqlalchemy==2.0.19
+pymysql==1.1.0
+pyodbc==4.0.39
+mysql-connector-python==8.1.0
+
+# API Integration for Data Sources
+requests==2.31.0
+google-analytics-data==0.18.0
+facebook-business==18.0.0
+linkedin-api==2.2.0
+
+# Data Visualization (for supplementary analysis)
+matplotlib==3.7.2
+seaborn==0.12.2
+plotly==5.15.0
+
+# Power BI Integration
+powerbiclient==3.1.1
+
+# Automation and Scheduling
+schedule==1.2.0
+python-crontab==3.0.0
+
+# Email and Reporting
+smtplib
+email-mime
+reportlab==4.0.4
+
+# Configuration Management
+python-dotenv==1.0.0
+configparser==6.0.0
+pyyaml==6.0.1
+
+# Logging and Monitoring
+logging
+colorama==0.4.6
+
+# Date and Time Handling
+python-dateutil==2.8.2
+pytz==2023.3
+
+# File Handling
+pathlib
+os
+shutil
+
+# Statistical Analysis
+scipy==1.11.1
+statsmodels==0.14.0
+
+# Progress Indicators
+tqdm==4.65.0
+
+# Environment and System
+platform
+sys
+json
+
+# Power BI REST API
+msal==1.24.0
+azure-identity==1.14.0
+
+# Jupyter for Analysis (Optional)
+jupyter==1.0.0
+notebook==7.0.2
+
+# Testing (Optional)
+pytest==7.4.0
+
+# Documentation
+sphinx==7.1.2
