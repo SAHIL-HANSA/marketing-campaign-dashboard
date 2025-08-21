@@ -1,1 +1,21 @@
-
+campaign_id,campaign_name,campaign_type,channel,start_date,end_date,budget_allocated,total_spend,impressions,clicks,leads_generated,conversions,revenue_generated,status
+C001,Summer Product Launch,Product Launch,Social Media,2024-06-01,2024-06-30,15000,14250,125000,3750,450,68,34000,Completed
+C002,Back to School Campaign,Seasonal,Email Marketing,2024-08-01,2024-08-31,8000,7800,45000,1890,234,41,20500,Completed  
+C003,Holiday Season Promotion,Seasonal,Google Ads,2024-11-15,2024-12-31,25000,23500,200000,8000,680,102,51000,Completed
+C004,Brand Awareness Drive,Brand Building,Display Advertising,2024-03-01,2024-03-31,12000,11400,180000,2160,180,22,11000,Completed
+C005,Lead Generation Campaign,Lead Gen,LinkedIn Ads,2024-07-01,2024-07-31,10000,9650,35000,1750,298,47,23500,Completed
+C006,Retargeting Campaign,Retargeting,Facebook Ads,2024-09-01,2024-09-30,6000,5850,28000,1540,165,38,19000,Completed
+C007,Content Marketing Push,Content,Organic Social,2024-05-01,2024-05-31,4000,3800,60000,1800,120,18,9000,Completed
+C008,Influencer Collaboration,Influencer,Instagram,2024-10-01,2024-10-31,18000,17100,95000,4750,380,57,28500,Completed
+C009,Video Ad Campaign,Video Marketing,YouTube,2024-04-01,2024-04-30,20000,19200,150000,4500,420,63,31500,Completed
+C010,Email Newsletter Series,Email Marketing,Direct Email,2024-01-15,2024-12-31,5000,4600,25000,1250,185,34,17000,Active
+C011,SEO Content Campaign,SEO,Organic Search,2024-02-01,2024-12-31,8000,7200,40000,2400,200,42,21000,Active
+C012,Podcast Sponsorship,Audio Marketing,Podcast Ads,2024-08-15,2024-11-15,12000,11300,30000,900,145,29,14500,Completed
+C013,Trade Show Promotion,Event Marketing,Trade Shows,2024-06-15,2024-06-17,22000,21450,5000,450,85,19,38000,Completed
+C014,Mobile App Campaign,App Marketing,Mobile Ads,2024-09-15,2024-10-15,16000,15200,80000,4000,320,48,24000,Completed
+C015,Referral Program Launch,Referral,Word of Mouth,2024-07-15,2024-12-31,3000,2700,15000,750,95,23,11500,Active
+C016,Black Friday Sale,Seasonal,Multi-Channel,2024-11-24,2024-11-30,35000,33250,300000,15000,1200,180,90000,Completed
+C017,New Year Resolution,Seasonal,Social Media,2024-01-01,2024-01-31,14000,13300,110000,4400,350,52,26000,Completed
+C018,Valentine's Day Special,Seasonal,Email + Social,2024-02-10,2024-02-14,7000,6650,45000,2250,180,31,15500,Completed
+C019,Spring Collection Launch,Product Launch,Instagram + Facebook,2024-03-15,2024-04-15,19000,18050,140000,7000,485,73,36500,Completed
+C020,Customer Loyalty Program,Retention,Direct Mail + Email,2024-05-15,2024-12-31,9000,8100,20000,1600,125,42,21000,Active
