@@ -1,0 +1,26 @@
+roi_id,campaign_id,campaign_name,channel,total_investment,total_revenue,net_profit,roi_percentage,cost_per_lead,cost_per_acquisition,conversion_rate,click_through_rate,customer_lifetime_value,return_period_days,profitability_score
+ROI001,C001,Summer Product Launch,Social Media,14250,34000,19750,238.6,31.67,209.56,15.1,3.0,500,45,8.5
+ROI002,C002,Back to School Campaign,Email Marketing,7800,20500,12700,262.8,33.33,190.24,17.5,4.2,400,30,9.2
+ROI003,C003,Holiday Season Promotion,Google Ads,23500,51000,27500,217.0,34.56,230.39,15.0,4.0,750,60,8.9
+ROI004,C004,Brand Awareness Drive,Display Advertising,11400,11000,-400,-3.5,63.33,518.18,12.2,1.2,250,90,2.1
+ROI005,C005,Lead Generation Campaign,LinkedIn Ads,9650,23500,13850,243.5,32.38,205.32,15.8,5.0,600,35,9.1
+ROI006,C006,Retargeting Campaign,Facebook Ads,5850,19000,13150,324.8,35.45,153.95,23.0,5.5,450,25,9.8
+ROI007,C007,Content Marketing Push,Organic Social,3800,9000,5200,236.8,31.67,211.11,15.0,3.0,350,40,7.9
+ROI008,C008,Influencer Collaboration,Instagram,17100,28500,11400,166.7,45.00,300.00,15.0,5.0,550,50,7.2
+ROI009,C009,Video Ad Campaign,YouTube,19200,31500,12300,164.1,45.71,304.76,15.0,3.0,600,55,6.8
+ROI010,C010,Email Newsletter Series,Direct Email,4600,17000,12400,369.6,24.86,135.29,18.4,5.0,400,28,9.9
+ROI011,C011,SEO Content Campaign,Organic Search,7200,21000,13800,291.7,36.00,171.43,21.0,6.0,550,42,9.5
+ROI012,C012,Podcast Sponsorship,Podcast Ads,11300,14500,3200,128.3,77.93,389.66,20.0,3.0,380,70,5.8
+ROI013,C013,Trade Show Promotion,Trade Shows,21450,38000,16550,177.2,252.35,1128.95,22.4,9.0,1200,30,7.5
+ROI014,C014,Mobile App Campaign,Mobile Ads,15200,24000,8800,157.9,47.50,316.67,15.0,5.0,480,45,6.9
+ROI015,C015,Referral Program Launch,Word of Mouth,2700,11500,8800,425.9,28.42,117.39,24.2,5.0,650,20,10.0
+ROI016,C016,Black Friday Sale,Multi-Channel,33250,90000,56750,270.7,27.71,184.72,15.0,5.0,800,7,9.6
+ROI017,C017,New Year Resolution,Social Media,13300,26000,12700,195.5,38.00,255.77,14.9,4.0,520,35,7.8
+ROI018,C018,Valentine's Day Special,Email + Social,6650,15500,8850,233.1,36.94,214.52,17.2,5.0,450,14,8.7
+ROI019,C019,Spring Collection Launch,Instagram + Facebook,18050,36500,18450,202.2,37.22,247.26,15.1,5.0,580,40,8.1
+ROI020,C020,Customer Loyalty Program,Direct Mail + Email,8100,21000,12900,259.3,64.80,192.86,33.6,8.0,750,60,9.3
+ROI021,C001,Summer Product Launch,Social Media,14250,34000,19750,238.6,31.67,209.56,15.1,3.0,500,45,8.5
+ROI022,C002,Back to School Campaign,Email Marketing,7800,20500,12700,262.8,33.33,190.24,17.5,4.2,400,30,9.2
+ROI023,C003,Holiday Season Promotion,Google Ads,23500,51000,27500,217.0,34.56,230.39,15.0,4.0,750,60,8.9
+ROI024,C004,Brand Awareness Drive,Display Advertising,11400,11000,-400,-3.5,63.33,518.18,12.2,1.2,250,90,2.1
+ROI025,C005,Lead Generation Campaign,LinkedIn Ads,9650,23500,13850,243.5,32.38,205.32,15.8,5.0,600,35,9.1
