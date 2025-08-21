@@ -51,7 +51,6 @@ marketing-campaign-dashboard/
 ├── requirements.txt             # Dependencies and tools
 ├── .gitignore                  # Git ignore file
 ├── powerbi/
-│   ├── Marketing_Campaign_Dashboard.pbix # Main Power BI file
 │   ├── data_model.json         # Data model documentation
 │   └── dax_measures.txt        # DAX formulas and calculations
 ├── data/
@@ -59,8 +58,6 @@ marketing-campaign-dashboard/
 │   │   ├── campaign_data.csv   # Sample campaign performance data
 │   │   ├── budget_data.csv     # Budget allocation data
 │   │   └── roi_metrics.csv     # ROI calculation data
-│   └── processed/
-│       └── marketing_data_clean.csv # Cleaned dataset
 ├── assets/
 │   ├── marketing_dashboard_main.png # Main dashboard screenshot
 │   ├── roi_analysis.png        # ROI analysis visualization
@@ -69,10 +66,6 @@ marketing-campaign-dashboard/
 ├── sql/
 │   ├── data_extraction.sql     # SQL queries for data extraction
 │   └── kpi_calculations.sql    # KPI calculation queries
-├── docs/
-│   ├── user_guide.md          # Dashboard user manual
-│   ├── technical_specs.md     # Technical documentation
-│   └── deployment_guide.md    # Deployment instructions
 └── scripts/
     ├── data_refresh.py        # Automated data refresh script
     └── export_reports.py     # Automated report generation
